@@ -15,4 +15,9 @@ class RMSNorm(nn.Module):
         # x.float() 将输入转换32位浮点数防止溢出或精度问题 type_as(x)将结果转换回输入的类型
         return self.gamma * self._norm(x.float()).type_as(x)
     
-    
+
+if __name__ == "__main__":
+    x = torch.randn(2,3,4)
+    norm = RMSNorm(4)
+    out = norm(x)
+    print(out.shape)
