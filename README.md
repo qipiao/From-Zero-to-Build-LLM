@@ -1,6 +1,6 @@
 # From-Zero-to-Build-LLM
 
-从零开始手撕预训练一个大语言模型，包括简单的复现[MiniMind项目](https://github.com/jingyaogong/minimind)，进一步训练1B级别的模型
+从零开始手撕预训练一个大语言模型，包括简单的复现[MiniMind项目](https://github.com/jingyaogong/minimind)，进一步训练1B级别的模型，对标GPT2，在一些指标上超越GPT2(1.5B)
 
 # 项目结构
 
@@ -65,7 +65,7 @@ conda activate 你的环境名
 
 python train.py
 
-五、结合 训练日志 + screen 最佳组合
+## 结合 训练日志 + screen 最佳组合
 方案 A：screen 实时看打印 + 额外保存日志文件
 bash
 运行
@@ -77,7 +77,7 @@ python train.py > log/train.log 2>&1
 方案 B：项目自带 logging/tensorboard
 不用改命令，正常跑就行，代码会自动把日志、模型、loss 存到本地文件夹。
 
-六、指定单张 3090 运行，服务器多卡必用，指定只用 0 号 3090：
+## 指定单张 3090 运行，服务器多卡必用，指定只用 0 号 3090：
 bash
 运行
 CUDA_VISIBLE_DEVICES=0 python train.py
@@ -86,15 +86,12 @@ bash
 运行
 CUDA_VISIBLE_DEVICES=0 python train.py > train_log.txt 2>&1
 
-七、极简全套流程bash运行
+## 极简全套流程bash运行
 1. 创建：screen screen -S train
 2. 激活环境：conda activate 你的env
 3. 卡0训练+存日志：CUDA_VISIBLE_DEVICES=0 python train.py > train.log 2>&1
 4. 脱离后台：Ctrl+A 松开 D
 5. 重连恢复：screen -r train
-
-
-
 
 
 # References
@@ -106,7 +103,7 @@ CUDA_VISIBLE_DEVICES=0 python train.py > train_log.txt 2>&1
 6. [nanochat项目地址（The best ChatGPT that $100 can buy）：https://github.com/karpathy/nanochat](https://github.com/karpathy/nanochat)
 7. [CS336：https://cs336.stanford.edu/](https://cs336.stanford.edu/)
 
-## Cite
+# Cite
 
 ```bibtex
 @misc{From Zero to Build LLM,
