@@ -17,7 +17,21 @@ class RMSNorm(nn.Module):
     
 
 if __name__ == "__main__":
-    x = torch.randn(2,3,4)
+    # x = torch.randn(2,3,4)
+    x = torch.Tensor(
+        [[[10000,  30, -0.6288,  1.2145],
+         [ 0.1785,  1.4688, 872,  0.8699],
+         [ 2.0121, -0.1344,  0.1555, -1.7043]],
+
+        [[ 0.0519, 343, -0.5836,  2.5901],
+         [ 1.2780,  423, -0.3882, -1.1333],
+         [ 0.3795,  1.5145, 1119,  4026]]]
+    ) 
     norm = RMSNorm(4)
+    print(x)
     out = norm(x)
+    
+    a,b,c = out.shape
+    print(f"out shape: {a} {b} {c}")
     print(out.shape)
+    print(out)
